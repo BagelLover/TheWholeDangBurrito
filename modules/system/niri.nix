@@ -2,11 +2,6 @@
 
 {
   programs.niri.enable = true;
-  
-  environment.systemPackages = with pkgs; [
-    caelestia-shell.packages.x86_64-linux.default
-  ];
-
   xdg.portal.enable = true;
   xdg.portal.xdgOpenUsePortal = true;
   xdg.portal.config = {
