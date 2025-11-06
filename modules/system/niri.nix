@@ -1,4 +1,4 @@
-{ config, pkgs, caelestia-shell, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.niri.enable = true;

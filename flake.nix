@@ -25,6 +25,7 @@
             home-manager.users.luke = {
               imports = [
                 ./modules/home/apps.nix
+                ./modules/home/matugen
               ];
               home.stateVersion = "24.11";
             };
