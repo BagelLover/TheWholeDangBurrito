@@ -1,41 +1,33 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, ... }:
 
 let
   system = pkgs.system;
 in {
   home.packages = with pkgs; [
-    # Core utilities
-    git
-    neovim
-    curl
-    wget
-    htop
-    tree
-    ripgrep
-    fd
-
-    # Wayland essentials
-    wl-clipboard
-    xwayland
-    alacritty  # terminal
-    
-    # File manager
-    spaceFM
-
-    # Optional GUI stuff
-    firefox
-    mpv
-    vlc
-
-    # Optional dev tools
-    nodejs
-    go
+    adw-gtk3
+    gnome-text-editor
+    nautilus
+    amberol
+    darkly
+    qlementine
+    nemo
+    anytype
+    notesnook
+    electron
+    zed-editor
   ];
+
 
   # Environment variables (optional)
   home.sessionVariables = {
-    EDITOR = "nvim";
-    TERMINAL = "alacritty";
+    EDITOR = "gnome-text-editor";
+    TERMINAL = "ghostty";
   };
-}
+  programs.ghostty = {
+  enable = true;
+  settings = {
+    "config-file" = "./config-dankcolors";
+  };
+};
 
+}

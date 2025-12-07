@@ -1,0 +1,31 @@
+[config]
+
+[templates.niri]
+input_path = '/home/luke/.config/matugen/templates/config.kdl'
+output_path = '/home/luke/.config/niri/config.kdl'
+
+[templates.gtk3]
+input_path = '/home/luke/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '/home/luke/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.zenchrome]
+input_path = '~/.config/matugen/templates/zen/userChrome.css.tpl'
+output_path = '/home/luke/.zen/9m2821vl.Default Profile/chrome/themes/userChrome.css.tpl'
+
+[templates.zencontent]
+input_path = '~/.config/matugen/templates/zen/userContent.css.tpl'
+output_path = '/home/luke/.zen/9m2821vl.Default Profile/chrome/themes/userContent.css.tpl'
+
+[templates.anytype]
+input_path = '~/.config/matugen/templates/anytype.css'
+output_path = '/home/luke/.var/app/io.anytype.anytype/config/anytype/custom.css'
