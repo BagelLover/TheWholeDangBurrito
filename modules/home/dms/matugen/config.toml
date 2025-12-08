@@ -18,13 +18,6 @@ output_path = '~/.config/gtk-4.0/colors.css'
 input_path = '~/.config/matugen/templates/zed-colors.json'
 output_path = '~/.config/zed/themes/matugen.json'
 
-[templates.zenchrome]
-input_path = '~/.config/matugen/templates/zen/userChrome.css.tpl'
-output_path = '/home/luke/.zen/9m2821vl.Default Profile/chrome/themes/userChrome.css.tpl'
-
-[templates.zencontent]
-input_path = '~/.config/matugen/templates/zen/userContent.css.tpl'
-output_path = '/home/luke/.zen/9m2821vl.Default Profile/chrome/themes/userContent.css.tpl'
 
 [templates.anytype]
 input_path = '~/.config/matugen/templates/anytype.css'
