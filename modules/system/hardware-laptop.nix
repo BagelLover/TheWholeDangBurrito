@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   hardware.nvidia = {
     modesetting.enable = true;
     prime = {
@@ -14,12 +14,10 @@
 
   hardware.opengl = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
 
     extraPackages = with pkgs; [
       intel-media-driver   # iHD (Gen9+ incl. 10th gen)
-      vaapiIntel           # fallback (optional but harmless)
+      intel-vaapi-driver          # fallback (optional but harmless)
     ];
   };
 
