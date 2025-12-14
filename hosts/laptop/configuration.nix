@@ -9,7 +9,7 @@
     ../../modules/system/locale.nix
     ../../modules/system/users.nix
     ../../modules/system/hardware.nix
-    ../../modules/system/nvidia.nix
+    ../../modules/system/hardware-laptop.nix
     #../../modules/system/power.nix
     ../../modules/system/services.nix
     ../../modules/system/displaymngr.nix

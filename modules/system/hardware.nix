@@ -4,4 +4,3 @@
     bluetooth.enable = true;
   };
 }
-

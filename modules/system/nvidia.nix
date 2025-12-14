@@ -1,15 +1,11 @@
 {
   hardware.nvidia = {
+    config.boot.kernelPackages.nvidiaPackages.latest;
     modesetting.enable = true;
-    prime = {
-      sync.enable = false;
-      offload.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:58:0:0";
-    };
-    powerManagement.enable = false;
-    open = false;
+    open = true;
     nvidiaSettings = true;
+    persistenceMode = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
   };
 }
-

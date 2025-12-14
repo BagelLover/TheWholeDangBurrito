@@ -4,14 +4,10 @@
     switcherooControl.enable = true;
     flatpak.enable = true;
     syncthing.enable = true;
-    ollama = {
-      enable = true;
-      loadModels = ["gemma3:4b"];
-    };
 
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" "intel" ];
+      videoDrivers = [ "nvidia" "modesetting" ];
       libinput.enable = true;
       displayManager.gdm.enable = false;
       desktopManager.gnome.enable = true;
@@ -19,4 +15,5 @@
     };
   };
   programs.steam.enable = true;
+  virtualisation.docker.enable = true;
 }
