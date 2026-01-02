@@ -15,12 +15,7 @@
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell/e39465aece2fd3414cbb82c7fc5fda1809de168e";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dgop.follows = "dgop";
-    };
+    # /e39465aece2fd3414cbb82c7fc5fda1809de168e
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +36,6 @@
         system = system;
         modules = [
           ./hosts/laptop/configuration.nix
-          inputs.dankMaterialShell.nixosModules.greeter
           home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ inputs.niri.overlays.niri ];
@@ -51,12 +45,8 @@
             # Home Manager user definition
             home-manager.users.luke = {
               imports = [
-                inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-                inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
-                inputs.niri.homeModules.niri
                 inputs.zen-browser.homeModules.twilight
                 ./modules/home/apps.nix
-                ./modules/home/dms
               ];
               programs.zen-browser.enable = true;
               home.stateVersion = "24.11";
@@ -68,7 +58,6 @@
         system = system;
         modules = [
           ./hosts/desktop/configuration.nix
-          inputs.dankMaterialShell.nixosModules.greeter
           home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ inputs.niri.overlays.niri ];
@@ -78,12 +67,8 @@
             # Home Manager user definition
             home-manager.users.luke = {
               imports = [
-                inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-                inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
-                inputs.niri.homeModules.niri
                 inputs.zen-browser.homeModules.twilight
                 ./modules/home/apps.nix
-                ./modules/home/dms
               ];
               programs.zen-browser.enable = true;
               home.stateVersion = "24.11";
