@@ -14,7 +14,6 @@
     initrd.verbose = false;
     kernelParams = [
       "nvidia-drm.modeset=1"
-      "mem_sleep_default=deep"
       "quiet"
       "splash"
       "boot.shell_on_fail"
@@ -31,4 +30,3 @@
     };
   };
 }
-
