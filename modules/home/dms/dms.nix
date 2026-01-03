@@ -1,1 +1,3 @@
-xdg.configFile."niri/config.kdl".source = ./config.kdl
+{ config, pkgs, lib, ... }: {
+  xdg.configFile."niri/config.kdl".source = ./config.kdl;
+}

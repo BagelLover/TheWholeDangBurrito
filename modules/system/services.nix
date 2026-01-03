@@ -8,7 +8,7 @@
       videoDrivers = [ "nvidia" "modesetting" ];
       libinput.enable = true;
       displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      desktopManager.gnome.enable = false;
       xkb.layout = "us";
     };
   };
