@@ -11,7 +11,10 @@
     };
 
     consoleLogLevel = 0;
-    initrd.verbose = false;
+    initrd = {
+      verbose = false;
+      kernelModules = [ "i915" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+    };
     kernelParams = [
       "nvidia-drm.modeset=1"
       "quiet"
