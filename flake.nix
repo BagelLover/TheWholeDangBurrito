@@ -46,6 +46,7 @@
             home-manager.users.luke = {
               imports = [
                 inputs.zen-browser.homeModules.twilight
+                ./modules/home/dms
                 ./modules/home/apps.nix
               ];
               programs.zen-browser.enable = true;
