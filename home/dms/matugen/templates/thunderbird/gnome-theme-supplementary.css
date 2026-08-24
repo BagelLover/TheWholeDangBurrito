@@ -1,0 +1,209 @@
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* ==========================================================================
+   Supplementary GNOME theme variables (Matugen-driven, corrected)
+   ========================================================================== */
+
+:root {
+
+    /* =========================================================
+       PALETTE (Matugen-driven)
+       ========================================================= */
+
+    --gnome-palette-blue-1: {{ colors.primary_container.default.hex }};
+    --gnome-palette-blue-2: {{ colors.primary.default.hex }};
+    --gnome-palette-blue-3: {{ colors.primary.default.hex | darken: 10.0 }};
+    --gnome-palette-blue-4: {{ colors.primary.default.hex | darken: 20.0 }};
+    --gnome-palette-blue-5: {{ colors.primary.default.hex | darken: 30.0 }};
+
+    --gnome-palette-green-1: {{ colors.tertiary_container.default.hex }};
+    --gnome-palette-green-2: {{ colors.tertiary.default.hex }};
+    --gnome-palette-green-3: {{ colors.tertiary.default.hex | darken: 10.0 }};
+    --gnome-palette-green-4: {{ colors.tertiary.default.hex | darken: 20.0 }};
+    --gnome-palette-green-5: {{ colors.tertiary.default.hex | darken: 30.0 }};
+
+    --gnome-palette-yellow-1: {{ colors.secondary_container.default.hex }};
+    --gnome-palette-yellow-2: {{ colors.secondary.default.hex }};
+    --gnome-palette-yellow-3: {{ colors.secondary.default.hex | darken: 10.0 }};
+    --gnome-palette-yellow-4: {{ colors.secondary.default.hex | darken: 20.0 }};
+    --gnome-palette-yellow-5: {{ colors.secondary.default.hex | darken: 30.0 }};
+
+    --gnome-palette-orange-1: {{ colors.secondary.default.hex | lighten: 10.0 }};
+    --gnome-palette-orange-2: {{ colors.secondary.default.hex }};
+    --gnome-palette-orange-3: {{ colors.secondary.default.hex | darken: 10.0 }};
+    --gnome-palette-orange-4: {{ colors.secondary.default.hex | darken: 20.0 }};
+    --gnome-palette-orange-5: {{ colors.secondary.default.hex | darken: 30.0 }};
+
+    --gnome-palette-red-1: {{ colors.error_container.default.hex }};
+    --gnome-palette-red-2: {{ colors.error.default.hex }};
+    --gnome-palette-red-3: {{ colors.error.default.hex | darken: 10.0 }};
+    --gnome-palette-red-4: {{ colors.error.default.hex | darken: 20.0 }};
+    --gnome-palette-red-5: {{ colors.error.default.hex | darken: 30.0 }};
+
+    --gnome-palette-purple-1: {{ colors.primary_container.default.hex }};
+    --gnome-palette-purple-2: {{ colors.primary.default.hex }};
+    --gnome-palette-purple-3: {{ colors.primary.default.hex | darken: 10.0 }};
+    --gnome-palette-purple-4: {{ colors.primary.default.hex | darken: 20.0 }};
+    --gnome-palette-purple-5: {{ colors.primary.default.hex | darken: 30.0 }};
+
+    --gnome-palette-brown-1: {{ colors.surface_variant.default.hex }};
+    --gnome-palette-brown-2: {{ colors.surface_variant.default.hex | darken: 10.0 }};
+    --gnome-palette-brown-3: {{ colors.surface_variant.default.hex | darken: 20.0 }};
+    --gnome-palette-brown-4: {{ colors.surface_variant.default.hex | darken: 30.0 }};
+    --gnome-palette-brown-5: {{ colors.surface_variant.default.hex | darken: 40.0 }};
+
+    --gnome-palette-light-1: {{ colors.background.default.hex }};
+    --gnome-palette-light-2: {{ colors.surface.default.hex }};
+    --gnome-palette-light-3: {{ colors.surface_variant.default.hex }};
+    --gnome-palette-light-4: {{ colors.outline_variant.default.hex }};
+    --gnome-palette-light-5: {{ colors.outline.default.hex }};
+
+    --gnome-palette-dark-1: {{ colors.on_surface.default.hex | lighten: 20.0 }};
+    --gnome-palette-dark-2: {{ colors.on_surface.default.hex | lighten: 10.0 }};
+    --gnome-palette-dark-3: {{ colors.on_surface.default.hex }};
+    --gnome-palette-dark-4: {{ colors.surface.default.hex }};
+    --gnome-palette-dark-5: {{ colors.background.default.hex }};
+
+    /* =========================================================
+       SEMANTIC COLORS
+       ========================================================= */
+
+    --gnome-standalone-color-oklab: min(l, 0.5) a b;
+
+    --gnome-accent-bg: {{ colors.primary.default.hex }};
+    --gnome-accent: oklab(from var(--gnome-accent-bg) var(--gnome-standalone-color-oklab));
+
+    --gnome-destructive-bg: {{ colors.error.default.hex }};
+    --gnome-destructive: oklab(from var(--gnome-destructive-bg) var(--gnome-standalone-color-oklab));
+
+    --gnome-success-bg: {{ colors.tertiary.default.hex }};
+    --gnome-success: oklab(from var(--gnome-success-bg) var(--gnome-standalone-color-oklab));
+
+    --gnome-warning-bg: {{ colors.secondary.default.hex }};
+    --gnome-warning: oklab(from var(--gnome-warning-bg) var(--gnome-standalone-color-oklab));
+
+    --gnome-error-bg: {{ colors.error.default.hex }};
+    --gnome-error: oklab(from var(--gnome-error-bg) var(--gnome-standalone-color-oklab));
+
+    /* =========================================================
+       INTERACTION SYSTEM
+       ========================================================= */
+
+    --gnome-focus-border-color: color-mix(in srgb, var(--gnome-accent) 50%, transparent);
+
+    --gnome-selection-bg: color-mix(in srgb, var(--gnome-accent-bg) 30%, transparent);
+
+    --gnome-view-selected-background: color-mix(in srgb, var(--gnome-accent-bg) 25%, transparent);
+    --gnome-view-selected-hover-background: color-mix(in srgb, var(--gnome-accent-bg) 32%, transparent);
+    --gnome-view-selected-active-background: color-mix(in srgb, var(--gnome-accent-bg) 39%, transparent);
+
+    /* =========================================================
+       CARD / SHADOWS
+       ========================================================= */
+
+    --gnome-card-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.03),
+        0 1px 3px 1px rgba(0, 0, 0, 0.07),
+        0 2px 6px 2px rgba(0, 0, 0, 0.03);
+
+    /* =========================================================
+       MENU
+       ========================================================= */
+
+    --gnome-menu-color: var(--gnome-window-color);
+    --gnome-menu-shadow:
+        0 1px 5px 1px rgba(0, 0, 0, 0.09),
+        0 2px 14px 3px rgba(0, 0, 0, 0.05);
+
+    --gnome-menu-button-hover-background: var(--gnome-button-background);
+    --gnome-menu-separator-color: var(--gnome-border-color);
+    --gnome-menu-border-color: var(--gnome-border-color);
+
+    /* =========================================================
+       TOOLBAR
+       ========================================================= */
+
+    --gnome-toolbar-background: var(--gnome-headerbar-background);
+    --gnome-toolbar-border-color: var(--gnome-headerbar-shade-color);
+    --gnome-toolbar-color: var(--gnome-window-color);
+
+    /* =========================================================
+       STATE SYSTEM
+       ========================================================= */
+
+    --gnome-border-color: color-mix(in srgb, currentColor 15%, transparent);
+    --gnome-hover-color: color-mix(in srgb, currentColor 7%, transparent);
+    --gnome-active-color: color-mix(in srgb, currentColor 16%, transparent);
+
+    --gnome-selected-color: color-mix(in srgb, currentColor 10%, transparent);
+    --gnome-selected-hover-color: color-mix(in srgb, currentColor 13%, transparent);
+    --gnome-selected-active-color: color-mix(in srgb, currentColor 19%, transparent);
+
+    --gnome-selected-background: var(--gnome-selected-color);
+
+    --gnome-trough-background: color-mix(in srgb, currentColor 15%, transparent);
+    --gnome-trough-hover-background: color-mix(in srgb, currentColor 20%, transparent);
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    --gnome-button-background: color-mix(in srgb, currentColor 10%, transparent);
+    --gnome-button-hover-background: color-mix(in srgb, currentColor 15%, transparent);
+    --gnome-button-active-background: color-mix(in srgb, currentColor 30%, transparent);
+
+    --gnome-button-checked-background: var(--gnome-button-active-background);
+    --gnome-button-checked-hover-background: color-mix(in srgb, currentColor 35%, transparent);
+    --gnome-button-checked-active-background: color-mix(in srgb, currentColor 40%, transparent);
+
+    --gnome-button-suggested-background: var(--gnome-accent-bg);
+
+    --gnome-button-destructive-background: color-mix(in srgb, currentColor 15%, transparent);
+    --gnome-button-destructive-hover-background: color-mix(in srgb, currentColor 20%, transparent);
+    --gnome-button-destructive-active-background: color-mix(in srgb, currentColor 35%, transparent);
+
+    /* =========================================================
+       ENTRIES
+       ========================================================= */
+
+    --gnome-entry-background: var(--gnome-button-background);
+    --gnome-entry-color: var(--gnome-view-color);
+    --gnome-inactive-entry-color: var(--gnome-entry-color);
+
+    /* =========================================================
+       TABS
+       ========================================================= */
+
+    --gnome-tabbar-background: var(--gnome-headerbar-background);
+    --gnome-tabbar-fade-background: var(--gnome-tabbar-background);
+
+    --gnome-tabbar-tab-separator-color: var(--gnome-border-color);
+
+    --gnome-tabbar-tab-hover-background: color-mix(in srgb, currentColor 7%, var(--gnome-tabbar-background));
+    --gnome-tabbar-tab-active-background: color-mix(in srgb, currentColor 10%, var(--gnome-tabbar-background));
+    --gnome-tabbar-tab-active-background-contrast: color-mix(in srgb, currentColor 20%, var(--gnome-tabbar-background));
+    --gnome-tabbar-tab-active-hover-background: color-mix(in srgb, currentColor 13%, var(--gnome-tabbar-background));
+
+    --gnome-tabbar-tab-close-overlay-bg: var(--gnome-button-background);
+
+    --gnome-tabbar-tab-separator-hack0: var(--gnome-tabbar-tab-separator-color);
+    --gnome-tabbar-tab-separator-hack1: transparent;
+
+    /* =========================================================
+       MISC
+       ========================================================= */
+
+    --gnome-focused-urlbar-border-color: var(--gnome-focus-border-color);
+    --gnome-navbar-csd-offset: 0px;
+
+    /* =========================================================
+       BACKDROP
+       ========================================================= */
+
+    :root:-moz-window-inactive {
+        --gnome-headerbar-background: var(--gnome-window-background) !important;
+        --gnome-sidebar-background: {{ colors.surface_variant.default.hex | lighten: 5.0 }};
+        --gnome-secondary-sidebar-background: {{ colors.surface_variant.default.hex | lighten: 8.0 }};
+        --gnome-selection-bg: color-mix(in srgb, var(--gnome-view-color) 10%, transparent);
+    }
+}

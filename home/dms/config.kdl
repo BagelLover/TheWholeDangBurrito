@@ -268,9 +268,6 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
-
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -284,7 +281,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -305,19 +302,32 @@ animations {
     // slowdown 3.0
 }
 
+// Blur configuration for background effects.
+// This applies to all blur: window-rule configured, and app-requested via ext-background-effect.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Blur
+blur {
+    // Number of downsample/upsample passes for dual kawase blur.
+    // More passes = larger, smoother blur, but more GPU cost.
+    passes 4
+
+    // Pixel offset multiplier for each pass.
+    // 1 is the original dual kawase blur. Larger = smoother, no extra GPU cost.
+    offset 2
+
+    // Amount of pixel noise added to the background (helps with color banding).
+    noise 0.02
+
+    // Color saturation of the blurred background (0 = desaturated, 1 = normal, 2 = 200%).
+    saturation 1.2
+
+    // Uncomment to disable all blur entirely.
+    // off
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
@@ -345,6 +355,145 @@ window-rule {
 /-window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+// Enable blur behind the Ghostty terminal (does not yet support ext-background-effect).
+window-rule {
+    match app-id=r#"^com\.mitchellh\.ghostty$"#
+    opacity 0.85
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Zed editor.
+window-rule {
+    match app-id=r#"^dev\.zed\.Zed$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Nautilus file manager.
+window-rule {
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Steam.
+window-rule {
+    match app-id="steam"
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Vesktop.
+window-rule {
+    match app-id=r#"^vesktop$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Celluloid.
+window-rule {
+    match app-id=r#"^io\.github\.celluloid_player\.Celluloid$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Heroic.
+window-rule {
+    match app-id=r#"^heroic$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind PrismLauncher.
+window-rule {
+    match app-id=r#"^org\.prismlauncher\.PrismLauncher$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Sable.
+window-rule {
+    match app-id=r#"^Sable$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind LibreWolf.
+window-rule {
+    match app-id=r#"^librewolf$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Thunderbird.
+window-rule {
+    match app-id=r#"^thunderbird$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Quickshell (DMS auth dialogs).
+window-rule {
+    match app-id=r#"^org\.quickshell$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind Impression.
+window-rule {
+    match app-id=r#"^io\.gitlab\.adhami3310\.Impression$"#
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind the fuzzel launcher.
+layer-rule {
+    match namespace="^launcher$"
+
+    background-effect {
+        blur true
+    }
 }
 
 // everything after this point is 100% DankMaterialShell related (stuff I took from that github and such)
@@ -540,6 +689,10 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    // Windows-style alternatives
+    Super+Shift+S { screenshot; }
+    Ctrl+Super+Shift+S { screenshot-screen; }
+    Alt+Super+Shift+S { screenshot-window; }
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+P { power-off-monitors; }
@@ -548,6 +701,11 @@ binds {
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
+include "dms/cursor.kdl"
+include "dms/binds.kdl"
+include "dms/windowrules.kdl"
+include "dms/outputs.kdl"
+include "dms/wpblur.kdl"
 
 layer-rule {
     match namespace="^quickshell$"

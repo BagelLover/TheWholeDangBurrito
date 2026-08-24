@@ -1,0 +1,74 @@
+
+:root {
+    /* Text colors - hex format (no alpha needed) */
+    --color-text-primary: {{colors.on_surface.light.hex}};
+    --color-text-secondary: {{colors.on_surface_variant.light.hex}};
+    --color-text-tertiary: {{colors.outline.light.hex}};
+    --color-text-inversion: {{colors.surface.light.hex}};
+
+    /* Shape/Surface colors - hex format */
+    --color-shape-primary: {{colors.surface_variant.light.hex}};
+    --color-shape-secondary: {{colors.outline.light.hex}};
+    --color-shape-tertiary: {{colors.surface_container_high.light.hex}};
+
+    /* Highlight colors with opacity - MUST use rgba format */
+    --color-shape-highlight-dark: {{colors.on_surface.light.rgba | set_alpha: 0.11}};
+    --color-shape-highlight-medium: {{colors.on_surface.light.rgba | set_alpha: 0.05}};
+    --color-shape-highlight-light: {{colors.on_surface.light.rgba | set_alpha: 0.03}};
+    --color-shape-highlight-light-solid: {{colors.surface_dim.light.hex}};
+
+    /* Control colors - hex format */
+    --color-control-accent: {{colors.on_surface.light.hex}};
+    --color-control-active: {{colors.on_surface_variant.light.hex}};
+    --color-control-inactive: {{colors.outline_variant.light.hex}};
+    --color-control-bg: {{colors.surface.light.hex}};
+
+    /* Background colors - hex and rgba for alpha */
+    --color-bg-primary: {{colors.surface_container_low.light.hex}};
+    --color-bg-primary-90: {{colors.background.light.rgba | set_alpha: 0.9}};
+    --color-bg-secondary: {{colors.surface.light.hex}};
+    --color-bg-loader: {{colors.on_surface.light.rgba | set_alpha: 0.7}};
+
+    /* Accent colors */
+    --color-system-accent-50: {{colors.primary.light.hex}};
+    --color-system-accent-25: {{colors.primary.light.hex}};
+    --color-system-accent-125: {{colors.primary.light.hex}};
+    --color-system-accent-100: {{colors.primary.light.hex}};
+}
+
+html.themeDark {
+    /* Text colors - hex format (no alpha needed) */
+    --color-text-primary: {{colors.on_surface.dark.hex}};
+    --color-text-secondary: {{colors.on_surface_variant.dark.hex}};
+    --color-text-tertiary: {{colors.outline.dark.hex}};
+    --color-text-inversion: {{colors.surface.dark.hex}};
+
+    /* Shape/Surface colors - hex format */
+    --color-shape-primary: {{colors.surface_variant.dark.hex}};
+    --color-shape-secondary: {{colors.outline.dark.hex}}; /* changed from surface_contianer */
+    --color-shape-tertiary: {{colors.surface_container_high.dark.hex}};
+
+    /* Highlight colors with opacity - MUST use rgba format */
+    --color-shape-highlight-dark: {{colors.on_surface.dark.rgba | set_alpha: 0.11}};
+    --color-shape-highlight-medium: {{colors.on_surface.dark.rgba | set_alpha: 0.05}};
+    --color-shape-highlight-light: {{colors.on_surface.dark.rgba | set_alpha: 0.03}};
+    --color-shape-highlight-light-solid: {{colors.surface_dim.dark.hex}};
+
+    /* Control colors - hex format */
+    --color-control-accent: {{colors.on_surface.dark.hex}};
+    --color-control-active: {{colors.on_surface_variant.dark.hex}};
+    --color-control-inactive: {{colors.outline_variant.dark.hex}};
+    --color-control-bg: {{colors.surface.dark.hex}};
+
+    /* Background colors - hex and rgba for alpha */
+    --color-bg-primary: {{colors.surface_container_low.dark.hex}};
+    --color-bg-primary-90: {{colors.background.dark.rgba | set_alpha: 0.9}};
+    --color-bg-secondary: {{colors.surface.dark.hex}};
+    --color-bg-loader: {{colors.on_surface.dark.rgba | set_alpha: 0.7}};
+
+    /* Accent colors */
+    --color-system-accent-50: {{colors.primary.dark.hex}};
+    --color-system-accent-25: {{colors.primary.dark.hex}};
+    --color-system-accent-125: {{colors.primary.dark.hex}};
+    --color-system-accent-100: {{colors.primary.dark.hex}};
+}

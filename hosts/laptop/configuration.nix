@@ -1,20 +1,10 @@
-
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system/niri.nix
-    ../../modules/system/boot.nix
-    ../../modules/system/networking.nix
-    ../../modules/system/locale.nix
-    ../../modules/system/users.nix
-    ../../modules/system/hardware.nix
-    ../../modules/system/hardware-laptop.nix
-    #../../modules/system/power.nix
-    ../../modules/system/services.nix
-    ../../modules/system/environment.nix
+    ./../shared.nix
+    ./../../modules/laptop/nvidia-prime.nix
+    ./../../modules/laptop/hardware.nix
   ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.stateVersion = "24.11";
 }

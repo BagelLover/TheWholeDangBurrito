@@ -1,0 +1,68 @@
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+:root {
+
+  /* =========================
+     WINDOW / SURFACE LAYERS
+     ========================= */
+
+  --gnome-window-background: {{ colors.background.default.hex }};
+  --gnome-window-color: {{ colors.on_background.default.hex }};
+
+  --gnome-view-background: {{ colors.surface.default.hex }};
+  --gnome-view-color: {{ colors.on_surface.default.hex }};
+
+  --gnome-sidebar-background: {{ colors.surface_variant.default.hex }};
+  --gnome-secondary-sidebar-background: {{ colors.surface_variant.default.hex }};
+
+  --gnome-sidebar-border-color: {{ colors.outline_variant.default.hex }};
+  --gnome-sidebar-shade-color: {{ colors.scrim.default.hex }};
+
+  /* =========================
+     CARDS
+     ========================= */
+
+  --gnome-card-background: {{ colors.surface.default.hex }};
+  --gnome-card-shade-color: {{ colors.shadow.default.hex }};
+
+  /* =========================
+     MENU / HEADERBAR
+     ========================= */
+
+  --gnome-menu-background: {{ colors.surface.default.hex }};
+
+  --gnome-headerbar-background: {{ colors.surface.default.hex }};
+  --gnome-headerbar-shade-color: {{ colors.shadow.default.hex }};
+
+  /* =========================
+     TOOLBARS
+     ========================= */
+
+  --gnome-toolbar-icon-fill: {{ colors.on_surface.default.hex }};
+
+  /* =========================
+     SEMANTIC COLORS
+     ========================= */
+
+  --gnome-destructive-bg: {{ colors.error.default.hex }};
+  --gnome-success-bg: {{ colors.tertiary.default.hex }};
+  --gnome-warning-bg: {{ colors.secondary.default.hex }};
+  --gnome-toolbar-star-button: {{ colors.primary.default.hex }};
+
+  /* =========================
+     TABS / ACCENTS
+     ========================= */
+
+  --gnome-tabbar-identity-color-blue: {{ colors.primary.default.hex }};
+  --gnome-tabbar-identity-color-green: {{ colors.tertiary.default.hex }};
+  --gnome-tabbar-identity-color-yellow: {{ colors.secondary.default.hex }};
+  --gnome-tabbar-identity-color-orange: {{ colors.secondary.default.hex }};
+  --gnome-tabbar-identity-color-red: {{ colors.error.default.hex }};
+  --gnome-tabbar-identity-color-purple: {{ colors.primary.default.hex }};
+
+  /* =========================
+     GLOBAL SHADING
+     ========================= */
+
+  --gnome-shade-color: {{ colors.shadow.default.hex }};
+}

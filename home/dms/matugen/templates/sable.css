@@ -1,0 +1,94 @@
+/*
+@matugen-theme
+id: matugen
+name: Matugen HSL OLED
+author: Elec3137 (fixed)
+kind: dark
+contrast: high
+tags: dark, oled, hsl, matugen
+*/
+
+body.sable-remote-theme {
+
+  /* Background */
+  --sable-bg-container: {{colors.surface_dim.default.hsl}};
+  --sable-bg-container-hover: {{colors.surface.default.hsl}};
+  --sable-bg-container-active: {{colors.surface_bright.default.hsl}};
+  --sable-bg-container-line: {{colors.outline.default.hsl}};
+  --sable-bg-on-container: {{colors.on_surface.default.hsl}};
+
+  /* Surface */
+  --sable-surface-container: {{colors.surface.default.hsl}};
+  --sable-surface-container-hover: {{colors.surface_variant.default.hsl}};
+  --sable-surface-container-active: {{colors.surface_bright.default.hsl}};
+  --sable-surface-container-line: {{colors.outline.default.hsl}};
+  --sable-surface-on-container: {{colors.on_surface.default.hsl}};
+
+  /* Surface Variant */
+  --sable-surface-var-container: {{colors.surface_variant.default.hsl}};
+  --sable-surface-var-container-hover: {{colors.surface.default.hsl}};
+  --sable-surface-var-container-active: {{colors.surface_bright.default.hsl}};
+  --sable-surface-var-container-line: {{colors.outline.default.hsl}};
+  --sable-surface-var-on-container: {{colors.on_surface.default.hsl}};
+
+  /* Primary */
+  --sable-primary-main: {{colors.primary.default.hsl}};
+  --sable-primary-main-hover: {{colors.primary_container.default.hsl}};
+  --sable-primary-main-active: {{colors.primary.default.hsl}};
+  --sable-primary-main-line: {{colors.primary.default.hsl}};
+  --sable-primary-on-main: {{colors.on_primary.default.hsl}};
+
+  --sable-primary-container: {{colors.primary_container.default.hsl}};
+  --sable-primary-container-hover: {{colors.primary_container.default.hsl}};
+  --sable-primary-container-active: {{colors.primary_container.default.hsl}};
+  --sable-primary-container-line: {{colors.outline.default.hsl}};
+  --sable-primary-on-container: {{colors.on_primary_container.default.hsl}};
+
+  /* Secondary */
+  --sable-sec-main: {{colors.secondary.default.hsl}};
+  --sable-sec-main-hover: {{colors.secondary_container.default.hsl}};
+  --sable-sec-main-active: {{colors.secondary.default.hsl}};
+  --sable-sec-main-line: {{colors.secondary.default.hsl}};
+  --sable-sec-on-main: {{colors.on_secondary.default.hsl}};
+
+  --sable-sec-container: {{colors.secondary_container.default.hsl}};
+  --sable-sec-container-hover: {{colors.secondary_container.default.hsl}};
+  --sable-sec-container-active: {{colors.secondary_container.default.hsl}};
+  --sable-sec-container-line: {{colors.outline.default.hsl}};
+  --sable-sec-on-container: {{colors.on_secondary_container.default.hsl}};
+
+  /* Success */
+  --sable-success-main: {{colors.tertiary.default.hsl}};
+  --sable-success-main-hover: {{colors.tertiary_container.default.hsl}};
+  --sable-success-main-active: {{colors.tertiary.default.hsl}};
+  --sable-success-main-line: {{colors.tertiary.default.hsl}};
+  --sable-success-on-main: {{colors.on_tertiary.default.hsl}};
+
+  --sable-success-container: {{colors.tertiary_container.default.hsl}};
+  --sable-success-container-hover: {{colors.tertiary_container.default.hsl}};
+  --sable-success-container-active: {{colors.tertiary_container.default.hsl}};
+  --sable-success-container-line: {{colors.outline.default.hsl}};
+  --sable-success-on-container: {{colors.on_tertiary_container.default.hsl}};
+
+  /* Warning */
+  --sable-warn-main: {{colors.error.default.hsl}};
+  --sable-warn-container: {{colors.error_container.default.hsl}};
+  --sable-warn-on-main: {{colors.on_error.default.hsl}};
+  --sable-warn-on-container: {{colors.on_error_container.default.hsl}};
+
+  /* Critical */
+  --sable-crit-main: {{colors.error.default.hsl}};
+  --sable-crit-container: {{colors.error_container.default.hsl}};
+  --sable-crit-on-main: {{colors.on_error.default.hsl}};
+  --sable-crit-on-container: {{colors.on_error_container.default.hsl}};
+
+  /* Other */
+  --sable-focus-ring: {{colors.primary.default.hsl}};
+  --sable-shadow: hsla(0, 0%, 0%, 0.5);
+  --sable-overlay: {{colors.surface.default.hsl}};
+}
+
+/* Left Panel Buttons */
+body.sable-remote-theme button[class*="Sidebar_SidebarAvatar"]:hover {
+  background-color: {{colors.surface_variant.default.hsl}};
+}

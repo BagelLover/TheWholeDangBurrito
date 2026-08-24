@@ -1,5 +1,6 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, ... }:
 
+{
   imports = [
     ./dms.nix
   ];

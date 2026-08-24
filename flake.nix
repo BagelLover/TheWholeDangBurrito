@@ -2,77 +2,102 @@
   description = "NixOS configuration";
 
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    # Essentials
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Flake imports
-    dgop = {
-      url = "github:AvengeMedia/dgop";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # /e39465aece2fd3414cbb82c7fc5fda1809de168e
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
+
+    bluebuild = {
+      url = "https://flakehub.com/f/blue-build/cli/*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, zen-browser, ... }: let
+  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-xr, spicetify-nix, bluebuild, ... }:
+  let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
+
       laptop = nixpkgs.lib.nixosSystem {
-        system = system;
+        inherit system;
+        specialArgs = { inherit spicetify-nix; };
+
         modules = [
-          ./hosts/laptop/configuration.nix
-          home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+            nixpkgs.config.allowUnfree = true;
+            nixpkgs.overlays = [
+                          nixpkgs-xr.overlays.default
+                          (final: prev: {
+                            xorg = prev.xorg // { lndir = prev.lndir; };
+                          })
+                        ];
+                      }
+
+                      ./hosts/laptop/configuration.nix
+
+          home-manager.nixosModules.home-manager
+
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = { inherit spicetify-nix; };
 
-            # Home Manager user definition
             home-manager.users.luke = {
               imports = [
-                inputs.zen-browser.homeModules.twilight
-                ./modules/home/dms
-                ./modules/home/apps.nix
+                ./home/dms
+                ./home/apps.nix
+                spicetify-nix.homeManagerModules.default
               ];
-              programs.zen-browser.enable = true;
-              home.stateVersion = "24.11";
+              home.stateVersion = "26.05";
             };
           }
         ];
       };
+
       desktop = nixpkgs.lib.nixosSystem {
-        system = system;
+        inherit system;
+        specialArgs = { inherit spicetify-nix; };
+
         modules = [
-          ./hosts/desktop/configuration.nix
-          home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+            nixpkgs.config.allowUnfree = true;
+            nixpkgs.overlays = [
+                          nixpkgs-xr.overlays.default
+                          (final: prev: {
+                            xorg = prev.xorg // { lndir = prev.lndir; };
+                          })
+                        ];
+                      }
+
+                      ./hosts/desktop/configuration.nix
+
+          home-manager.nixosModules.home-manager
+
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = { inherit spicetify-nix; };
 
-            # Home Manager user definition
             home-manager.users.luke = {
               imports = [
-                inputs.zen-browser.homeModules.twilight
-                ./modules/home/apps.nix
+                ./home/dms
+                ./home/apps.nix
+                spicetify-nix.homeManagerModules.default
               ];
-              programs.zen-browser.enable = true;
-              home.stateVersion = "24.11";
+              home.stateVersion = "26.05";
             };
           }
         ];

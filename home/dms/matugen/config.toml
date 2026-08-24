@@ -1,0 +1,72 @@
+[config]
+
+[templates.niri]
+input_path = '~/.config/matugen/templates/colors-alt.kdl'
+output_path = '~/.config/niri/colors-alt.kdl'
+
+[templates.gtk3]
+input_path = '/home/luke/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '/home/luke/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.steam]
+input_path = '~/.config/matugen/templates/steam.css'
+output_path = '~/.config/AdwSteamGtk/custom.css'
+post_hook = 'adwaita-steam-gtk -i'
+
+[templates.vesktop]
+input_path = '~/.config/matugen/templates/vesktop.css'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
+
+[templates.spotify]
+input_path = '~/.config/matugen/templates/spicetify/color.ini'
+output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
+post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"'
+
+#[templates.anytype]
+#input_path = '~/.config/matugen/templates/anytype.css'
+#output_path = '/home/luke/.var/app/io.anytype.anytype/config/anytype/custom.css'
+
+[templates.sable]
+input_path = '~/.config/matugen/templates/sable.css'
+output_path = '/home/luke/sable-matugen.css'
+
+[templates.prismlauncher]
+input_path = '~/.config/matugen/templates/prismlauncher.json'
+output_path = '~/.local/share/PrismLauncher/themes/Matugen/theme.json'
+
+[templates.heroic]
+input_path = '~/.config/matugen/templates/heroic.css'
+output_path = '~/.config/heroic/themes/matugen.css'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship.toml'
+output_path = '~/.config/starship.toml'
+
+[templates.thunderbird-dark]
+input_path = '~/.config/matugen/templates/thunderbird/thunderbird-matugen-dark-template.css'
+output_path = '/home/luke/.config/thunderbird-gnome-theme/theme/colors/dark-output.css'
+post_hook = '/home/luke/.config/thunderbird-gnome-theme/scripts/install.sh'
+
+[templates.thunderbird-light]
+input_path = '~/.config/matugen/templates/thunderbird/thunderbird-matugen-light-template.css'
+output_path = '/home/luke/.config/thunderbird-gnome-theme/theme/colors/light-output.css'
+post_hook = '/home/luke/.config/thunderbird-gnome-theme/scripts/install.sh'
+
+[templates.thunderbird-supplementary]
+input_path = '~/.config/matugen/templates/thunderbird/gnome-theme-supplementary.css'
+output_path = '/home/luke/.config/thunderbird-gnome-theme/theme/colors/gnome-theme-supplementary.css'
+post_hook = '/home/luke/.config/thunderbird-gnome-theme/scripts/installpywalfox update.sh'
+
+[templates.pywalfox]
+input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
