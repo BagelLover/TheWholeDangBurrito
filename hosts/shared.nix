@@ -2,15 +2,15 @@
 
 {
   imports = [
-    ./../modules/boot.nix
-    ./../modules/locale.nix
-    ./../modules/networking.nix
-    ./../modules/users.nix
-    ./../modules/hardware.nix
-    ./../modules/services.nix
-    ./../modules/environment.nix
-    ./../modules/niri.nix
-    ./../modules/steam.nix
+    ./../core/boot.nix
+    ./../core/hardware.nix
+    ./../core/environment.nix
+    ./../core/locale.nix
+    ./../core/networking.nix
+    ./../core/niri.nix
+    ./../core/security.nix
+    ./../core/services.nix
+    ./../core/users.nix
   ];
 
   fonts.fontDir.enable = true;

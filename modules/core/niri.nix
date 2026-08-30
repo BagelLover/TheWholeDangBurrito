@@ -32,33 +32,6 @@
   # System packages for niri environment
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-    xdg-desktop-portal-gtk
-    adwaita-icon-theme
-    gnome-themes-extra
-    qt6Packages.qt6ct
-    gparted
-    seahorse
-    lxqt.lxqt-policykit
-    vimix-cursors
-    libxcursor
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5ct
-    hyfetch
-    woeusb-ng
-    heroic
+    starship
+    
   ];
-
-  # XDG portal configuration
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-    config.common.default = "*";
-  };
-
-  # Qt theming
-  qt = {
-    enable = true;
-  };
-}
